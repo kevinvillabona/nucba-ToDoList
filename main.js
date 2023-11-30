@@ -12,7 +12,7 @@ const guardarLS = (listaTareas) => {
 const crearTarea = (tarea) => {
     let agregarClase = ""
     tarea.checked == "checked" ? agregarClase = "checked-color" : "";
-    return `<li class="${agregarClase}"><span>${tarea.name}</span><div><input type="checkbox" class="checkbox" ${tarea.checked} data-name="${tarea.name}"/><img class="delete-btn" src="./img/trash-can-danger.svg" alt="Botón de eliminación" data-name="${tarea.name}"></li></div>`
+    return `<li class="${agregarClase}"><span>${tarea.name}</span><div><input type="checkbox" class="checkbox" ${tarea.checked} data-name="${tarea.name}" title="Marcar como realizada"/><img class="delete-btn" src="./img/trash-can-danger.svg" alt="Botón de eliminación" data-name="${tarea.name}" title="Borrar tarea"></li></div>`
 }
 
 const renderlistaTareas = (todoList) => {
