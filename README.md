@@ -1,4 +1,4 @@
-# [`NUCBA`](https://nucba.io/codingbootcamp) | [`Live DEMO`]() | To Do List - JavaScript
+# [`NUCBA`](https://nucba.io/codingbootcamp) | [`Live DEMO`](https://nucba-to-do-list.vercel.app) | To Do List - JavaScript
 Solución al desafío correspondiente a la clase 7 del módulo Manipulación del DOM de JavaScript. El objetivo del desafío es implementar una aplicación simple de gestión de tareas utilizando HTML, CSS y JavaScript. La aplicación debe permitir a los usuarios agregar y eliminar tareas.
 
 #### Se proporciona la estructura HTML y el estilo CSS.
