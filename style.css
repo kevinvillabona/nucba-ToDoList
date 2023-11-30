@@ -88,6 +88,7 @@ h1 {
 
 .delete-btn {
   cursor: pointer;
+  width: 21px;
 }
 
 .tasks-list {
@@ -112,7 +113,7 @@ h1 {
 }
 
 .deleteAll-btn {
-  margin-top: 30px;
+  margin: 30px;
   background: linear-gradient(45deg, #ff8d0c, #ff1153);
   outline: none;
   border: 0px solid;
@@ -157,4 +158,13 @@ h1 {
   margin: 0 10px;
   width: 23px;
   height: 23px;
+}
+
+/* .checked-color {
+  color: rgb(80, 80, 80);
+} */
+
+.checked-color {
+  background: #28a745 !important;
+  color: rgba(0, 0, 0, 0.5) !important;
 }

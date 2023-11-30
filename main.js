@@ -10,7 +10,9 @@ const guardarLS = (listaTareas) => {
 }
 
 const crearTarea = (tarea) => {
-    return `<li><span>${tarea.name}</span><div><input type="checkbox" class="checkbox" ${tarea.checked}/><img class="delete-btn ${tarea.complete}" src="./img/delete.svg" alt="Botón de eliminación" data-name="${tarea.name}"></li></div>`
+    let agregarClase = ""
+    tarea.checked == "checked" ? agregarClase = "checked-color" : "";
+    return `<li class="${agregarClase}"><span>${tarea.name}</span><div><input type="checkbox" class="checkbox" ${tarea.checked} data-name="${tarea.name}"/><img class="delete-btn" src="./img/trash-can-danger.svg" alt="Botón de eliminación" data-name="${tarea.name}"></li></div>`
 }
 
 const renderlistaTareas = (todoList) => {
@@ -52,23 +54,42 @@ const agregarTarea = (e) => {
     acciones(tareas)
 }
 
+// const borrarTarea = (e) => {
+//     if(!e.target.classList.contains("delete-btn")){
+//         return;
+//     }
+//     const filterName = e.target.dataset.name;
+//     tareas = tareas.filter((tarea) => tarea.name !== filterName)
+//     acciones(tareas)
+// }
+
 const borrarTarea = (e) => {
-    if(!e.target.classList.contains("delete-btn")){
-        return;
+    if (e.target.classList.contains("delete-btn")) {
+        // Eliminar tarea
+        const filterName = e.target.dataset.name;
+        tareas = tareas.filter((tarea) => tarea.name !== filterName);
+    } else if (e.target.type === "checkbox") {
+        // Cambiar estado del checkbox
+        const filterName = e.target.dataset.name;
+        const tarea = tareas.find((tarea) => tarea.name === filterName);
+        tarea.checked = e.target.checked ? "checked" : "";
     }
-    const filterName = e.target.dataset.name;
-    tareas = tareas.filter((tarea) => tarea.name !== filterName)
-    acciones(tareas)
-}
+    acciones(tareas);
+};
 
 const borrarTodos = () => {
     tareas = [];
     acciones(tareas)
 }
 
+const finalizarTarea = (e) => {
+    console.log(e)
+}
+
 const init = () => {
-    renderlistaTareas(tareas);
-    addForm.addEventListener("submit", agregarTarea);
+    ocultarBtnBorrar(tareas)
+    renderlistaTareas(tareas)
+    addForm.addEventListener("submit", agregarTarea)
     listaTareas.addEventListener("click", borrarTarea)
     btnBorrar.addEventListener("click", borrarTodos)
 }
